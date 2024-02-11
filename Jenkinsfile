@@ -16,6 +16,19 @@ pipeline {
                 git branch: 'main', credentialsId: 'github', url: 'https://github.com/srijansankalp/register-app.git'
           }
        }
+     stage("Build Application"){
+            steps {
+                sh "mvn clean package"
+            }
+
+       }
+
+       stage("Test Application"){
+           steps {
+                 sh "mvn test"
+           }
+       }
+
   }
 }
 
